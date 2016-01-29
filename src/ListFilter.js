@@ -67,5 +67,5 @@ var ListContainer = React.createClass({
 });
 
 
-ReactDOM.render(<ListContainer />, document.getElementById("app"));
+// ReactDOM.render(<ListContainer />, document.getElementById("listFilter"));
 

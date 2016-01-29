@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack",
     "watch": "webpack -w",
-    "server": "webpack-dev-server --output-public-path=/dist/ --inline --hot",
+    "start": "webpack-dev-server --output-public-path=/dist/ --inline --hot",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
