@@ -7,7 +7,14 @@
 <body>
 
 
-<div id="videoPlayer"></div>
+<div class="rplay"
+     data-rplay-setup='{
+       "sources": [
+         "../assets/videos/movie_300.mp4",
+         "../assets/videos/movie_300.webm"],
+       "poster": "../assets/images/video_poster.jpg"
+     }'>
+</div>
 <br><br>
 <hr>
 <br><br>
@@ -15,6 +22,5 @@
 
 
 <script src="../dist/videoPlayer.js"></script>
-<script src="../dist/listFilter.js"></script>
 </body>
 </html>
