@@ -3,7 +3,7 @@ var path = require("path");
 module.exports = {
   context: path.join(__dirname, "src"),
   entry: {
-    videoPlayer: "./VideoPlayer.js"
+    rplay: "./App.js"
   },
   output: {
     path: path.join(__dirname, "dist"),
