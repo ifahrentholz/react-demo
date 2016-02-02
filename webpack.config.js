@@ -25,10 +25,10 @@ module.exports = {
         }
       },
       {
-        test: /\.scss$/,
+        test: /main\.scss$/,
         loaders: ["style", "css", "sass"],
         include: [
-          path.join(__dirname, "src/stylesheets")
+          path.join(__dirname, "src/stylesheets/main.scss")
         ]
       }
     ]

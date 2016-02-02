@@ -1,5 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import PlayButton from "./components/PlayButton";
+import PauseButton from "./components/PauseButton";
+
+require("./stylesheets/main.scss");
 
 let App = React.createClass({
   getInitialState() {
@@ -16,13 +20,6 @@ let App = React.createClass({
   },
 
 
-  addPlayer(player) {
-    this.setState({
-      player: player
-    });
-  },
-
-
   render() {
     return (
       <div className="rplay-container">
@@ -36,14 +33,10 @@ let App = React.createClass({
 
 
 let MediaEmbed = React.createClass({
-  refPlayer() {
-    this.props.addPlayer(this.refs.player);
-  },
-
   render() {
     return (
       <div className="rplay-mediaembed">
-        <video  ref="player" controls onCanPlay={this.refPlayer}>
+        <video controls onCanPlay={this.refPlayer}>
           <source src="../../assets/videos/movie_300.mp4" type="video/mp4"></source>
           <source src="../../assets/videos/movie_300.webm" type="video/webm"></source>
         </video>
@@ -54,21 +47,11 @@ let MediaEmbed = React.createClass({
 
 
 let Controls = React.createClass({
-  play() {
-    const player = this.props.player;
-    player.play();
-  },
-
-  pause() {
-    const player = this.props.player;
-    player.pause();
-  },
-
   render() {
     return (
       <div className="rplay-controls">
-        <button onClick={this.play} >Play</button>
-        <button onClick={this.pause}>Pause</button>
+        <PlayButton />
+        <PauseButton />
       </div>
     )
   }
@@ -77,5 +60,5 @@ let Controls = React.createClass({
 
 Array.from(document.querySelectorAll(".rplay")).forEach(function(media) {
   let data = JSON.parse(media.dataset.rplaySetup);
-  ReactDOM.render(<App sources={data.sources} poster={data.poster} />, media);
+  ReactDOM.render(<App sources={data.sources} poster={data.poster}/>, media);
 });
