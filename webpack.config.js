@@ -3,7 +3,8 @@ var path = require("path");
 module.exports = {
   context: path.join(__dirname, "src"),
   entry: {
-    rplay: "./App.js"
+    rplay: "./Videoplayer/App.js",
+    ghCard: "./GithubCards/App.js"
   },
   output: {
     path: path.join(__dirname, "dist"),
@@ -28,12 +29,12 @@ module.exports = {
         test: /main\.scss$/,
         loaders: ["style", "css", "sass"],
         include: [
-          path.join(__dirname, "src/stylesheets/main.scss")
+          path.join(__dirname, "src")
         ]
       }
     ]
   },
   sassLoader: {
-    includePath: [path.join(__dirname, "src/stylesheets")]
+    includePath: [path.join(__dirname, "src/Videoplayer/stylesheets")]
   }
 };
