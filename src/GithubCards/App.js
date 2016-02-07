@@ -12,16 +12,18 @@ var Card = React.createClass({
   },
   removeUser(e) {
     e.preventDefault();
-    console.log("test123");
+    this.props.removeCard(this.props.login);
   },
   render() {
     return (
-      <div>
-        <img src={this.state.avatar_url} alt="" width="80"/>
-        <h3>{this.state.name}</h3>
-        <br/><br/>
-        <button onClick={this.removeUser}>Remove</button>
-        <hr/>
+      <div className="row">
+        <div className="col-sm-8">
+          <img src={this.state.avatar_url} alt="" width="80"/>
+          <h3>{this.state.name}</h3>
+        </div>
+        <div className="col-sm-4">
+          <button className="btn btn-danger" onClick={this.removeUser}>Remove</button>
+        </div>
       </div>
     )
   }
@@ -37,8 +39,10 @@ var Form = React.createClass({
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <input ref="login" type="text" placeholder="enter github username"/>
-        <button>Get User</button>
+        <div className="form-group">
+          <label htmlFor="login">Github Username</label>
+          <input id="login" ref="login" type="text" className="form-control" placeholder="Github username" />
+        </div>
       </form>
     )
   }
@@ -53,12 +57,13 @@ var Main = React.createClass({
   addCard(name) {
     this.setState({logins: this.state.logins.concat(name)});
   },
-  removeCard(username) {
-    console.log("username:" + username);
+  removeCard(login) {
+    var newArr = this.state.logins.filter(e => e !== login);
+    this.setState({logins: newArr});
   },
   render() {
     var cards = this.state.logins.map(login => {
-      return <Card key={login} login={login}/>
+      return <Card key={login} login={login} removeCard={this.removeCard}/>
     });
     return (
       <div>
