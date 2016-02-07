@@ -15,12 +15,15 @@ var Card = React.createClass({
     this.props.removeCard(this.props.login);
   },
   render() {
+    var url = `https://github.com/${this.props.login}`;
     return (
       <div className="row">
-        <div className="col-sm-8">
-          <img src={this.state.avatar_url} alt="" width="80"/>
-          <h3>{this.state.name}</h3>
-        </div>
+        <a target="_blank" href={url}>
+          <div className="col-sm-8">
+            <img src={this.state.avatar_url} alt="" width="80"/>
+            <h3>{this.state.name} <sup>{this.state.followers}</sup></h3>
+          </div>
+        </a>
         <div className="col-sm-4">
           <button className="btn btn-danger" onClick={this.removeUser}>Remove</button>
         </div>
@@ -41,7 +44,7 @@ var Form = React.createClass({
       <form onSubmit={this.handleSubmit}>
         <div className="form-group">
           <label htmlFor="login">Github Username</label>
-          <input id="login" ref="login" type="text" className="form-control" placeholder="Github username" />
+          <input id="login" ref="login" autoComplete="off" type="text" className="form-control" placeholder="Github username" />
         </div>
       </form>
     )
