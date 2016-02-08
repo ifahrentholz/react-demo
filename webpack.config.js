@@ -4,7 +4,8 @@ module.exports = {
   context: path.join(__dirname, "src"),
   entry: {
     rplay: "./Videoplayer/App.js",
-    ghCard: "./GithubCards/App.js"
+    ghCard: "./GithubCards/App.js",
+    plural01: "./Pluralsight01/App.js"
   },
   output: {
     path: path.join(__dirname, "dist"),
