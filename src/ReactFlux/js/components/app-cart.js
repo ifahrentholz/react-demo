@@ -6,7 +6,7 @@ import Decrease from "./app-decreaseitem";
 
 
 let cartItems = () => {
-  return {items: AppStore.getCatalog()};
+  return {items: AppStore.getCart()};
 };
 
 
