@@ -6,7 +6,8 @@ module.exports = {
     rplay: "./Videoplayer/App.js",
     ghCard: "./GithubCards/App.js",
     plural01: "./Pluralsight01/App.js",
-    reactFlux: "./ReactFlux/js/main.js"
+    reactFlux: "./ReactFlux/js/main.js",
+    officialDemo: "./OfficialTodoDemo/main.js"
   },
   output: {
     path: path.join(__dirname, "dist"),
