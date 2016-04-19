@@ -13,16 +13,20 @@ let App = React.createClass({
       isReady: false,
       loaded: 0,
       duration: 0,
-      player: null,
       playing: false,
-      played: 0
+      played: 0,
+      api: null
     }
+  },
+
+  setApi(apiRef) {
+    this.state.api = apiRef;
   },
 
   render() {
     return (
       <div className="rplay-container">
-        <MediaEmbed />
+        <MediaEmbed setApi={this.setApi} />
       </div>
     )
   }
@@ -31,14 +35,17 @@ let App = React.createClass({
 
 
 let MediaEmbed = React.createClass({
+  componentDidMount() {
+    this.props.setApi(this.refs.api);
+  },
   render() {
     return (
       <div className="rplay-mediaembed">
-        <video controls ref="player">
+        <video controls ref="api">
           <source src="../../assets/videos/movie_300.mp4" type="video/mp4"></source>
           <source src="../../assets/videos/movie_300.webm" type="video/webm"></source>
         </video>
-        <Controls player={this.refs.player}/>
+        <Controls />
       </div>
     )
   }
